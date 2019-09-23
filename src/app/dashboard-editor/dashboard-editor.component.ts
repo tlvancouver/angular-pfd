@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Dashboard } from '../dashboard';
-
+import { DashboardService } from '../dashboard.service';
 
 @Component({
   selector: 'app-dashboard-editor',
@@ -9,13 +9,18 @@ import { Dashboard } from '../dashboard';
 })
 export class DashboardEditorComponent implements OnInit {
 
-  @Input() dashboard: Dashboard;
+  dashboard: Dashboard;
 
-  constructor() {
-    
+  constructor(private dashboardService : DashboardService) {
+
   }
 
   ngOnInit() {
+    this.getDashboard();
   }
 
+  getDashboard(): void {
+    this.dashboardService.getDashboard(1)
+      .subscribe(dashboard => this.dashboard = dashboard);
+  }
 }
