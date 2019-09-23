@@ -1,0 +1,27 @@
+<div class="category">
+  <div class="toc">
+    <h1>Explore</h1>
+    <h2><span class="featurenum">xx</span> indicators in <span class="featurenum">{{categories.length}}</span> categories. Here are the categories:</h2>
+    <ul>
+      <li *ngFor="let category of categories" (click)="onSelect(category)">{{category.title}}
+        <button class="delete" title="delete category" (click)="delete(category)">x</button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="category">
+  <div *ngFor="let category of categories" (click)="onSelect(category)">
+    <p>{{category.title}}</p>
+  <div class="row">
+    <div class="col">      
+      <p>{{category.intro}}</p>
+    </div>
+    <div class="col">
+      <p>{{category.sidebar}}</p>    
+    </div>
+  </div>
+  </div>
+</div>
+
+<app-category-editor [category]="selectedCategory"></app-category-editor>

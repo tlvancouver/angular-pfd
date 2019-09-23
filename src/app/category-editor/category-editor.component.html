@@ -1,0 +1,16 @@
+<h1>
+Edit Category
+</h1>
+<div *ngIf="category">
+<div>
+<label>Title: 
+  <input [(ngModel)]="category.title" placeholder="title"/>
+</label>
+<label>Intro: 
+  <input [(ngModel)]="category.intro" placeholder="intro"/>
+</label>
+<label>Sidebar: 
+  <input [(ngModel)]="category.sidebar" placeholder="sidebar"/>
+</label>
+</div>
+</div>
