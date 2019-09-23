@@ -29,7 +29,7 @@ export class DashboardService {
   }
 
   private log(message: string)  {
-    this.messageService.add('DashboardService: $(mesasge)');
+    this.messageService.add('DashboardService: $(message)');
   }
 
   /**
