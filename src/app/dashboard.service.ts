@@ -3,6 +3,7 @@ import { Dashboard } from './dashboard';
 import { MOCKDASHBOARD } from './mock-dashboard';
 import { Observable, of } from  'rxjs';
 import { MessageService } from './message.service';
+
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -18,7 +19,7 @@ export class DashboardService {
   constructor(private messageService: MessageService, private http: HttpClient) { }
 
   getDashboard(id: number): Observable<Dashboard> { 
-    this.log('Mock dashboard retrieved');
+    this.messageService.add('DashboardService: fetched Dashboard');
     return of (MOCKDASHBOARD);    
     /*
     return this.http.get<Dashboard>(this.dashboardurl)
@@ -26,7 +27,15 @@ export class DashboardService {
         catchError(this.handleError<Dashboard[]>('getDashboard', []))
       );
     */
-  }
+  }    
+    /*
+    return this.http.get<Dashboard>(this.dashboardurl)
+      .pipe(
+        catchError(this.handleError<Dashboard[]>('getDashboard', []))
+      );
+  
+*/
+  
 
   private log(message: string)  {
     this.messageService.add('DashboardService: $(message)');

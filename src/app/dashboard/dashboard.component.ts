@@ -19,8 +19,10 @@ export class DashboardComponent implements OnInit {
   }
 
   getDashboard(): void {
-    //this.dashboard = this.dashboardService.getDashboard();
+    //this.dashboard = this.dashboardService.getDashboard(1);
+    
     this.dashboardService.getDashboard(1)
       .subscribe(dashboard => this.dashboard = dashboard);
+    
   }
 }
